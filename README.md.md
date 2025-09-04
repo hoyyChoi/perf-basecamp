@@ -46,6 +46,6 @@
 
 - [ ] 크기
   - [x] bundle.js 소스코드 (결과) : gzip 전 172kb
-    - [ ] JS Minify/Uglify 활성화
-    - [ ] CSS Minify 적용
-    - [ ] CSS 분리 추출
+    - [x] JS Minify/Uglify 활성화
+    - [x] CSS Minify 적용
+    - [x] CSS 분리 추출
