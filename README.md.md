@@ -33,7 +33,7 @@
     - [x] 레거시 JavaScript 제공 중 : 절감 가능치 41 kb
     - [x] 네트워크 페이로드 관리 필요 : 총 크기 15,563 kb
 - [x] 크기
-  - [x] bundle.js 소스코드 크기 : 247kb
+  - [x] bundle.js 소스코드 크기 : 247kb (gzip 전 948kb)
   - [x] 히어로 이미지 크기 : 10,918kb
 - [x] 속도 (프랑스 파리 기준)
   - [x] 1번째 lcp 로드 : 2.548s (fast) / 8.764s (slow)
@@ -43,3 +43,9 @@
   - [x] Partially Presented Frame ?
 
 ### 개선
+
+- [ ] 크기
+  - [x] bundle.js 소스코드 (결과) : gzip 전 172kb
+    - [ ] JS Minify/Uglify 활성화
+    - [ ] CSS Minify 적용
+    - [ ] CSS 분리 추출
