@@ -63,3 +63,5 @@
   - [ ] Home 페이지에서 Search 페이지의 소스 코드가 포함x
     - [ ]
   - [ ] `react-icons` 패키지에서 실제 사용되는 부분
+    - [x] 개별 아이콘 import로 변경
+    - [x] react-icons와 @react-icons/all-files 비교해보기
