@@ -4,6 +4,7 @@ const Dotenv = require('dotenv-webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = {
   entry: './src/index.tsx',
@@ -30,6 +31,12 @@ module.exports = {
     new Dotenv(),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css'
+    }),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'server',
+      openAnalyzer: false,
+      generateStatsFile: true,
+      statsFilename: 'bundle-report.json'
     })
   ],
   module: {
@@ -57,5 +64,6 @@ module.exports = {
   optimization: {
     minimize: true,
     minimizer: [`...`, new CssMinimizerPlugin()]
+    // concatenateModules: false
   }
 };
