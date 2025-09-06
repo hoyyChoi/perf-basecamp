@@ -67,7 +67,10 @@
   - [x] `react-icons` 패키지에서 실제 사용되는 부분
     - [x] 개별 아이콘 import로 변경
     - [x] react-icons와 @react-icons/all-files 비교해보기
-- [ ] 같은 건 매번 새로 요청하지 않기
+- [x] 같은 건 매번 새로 요청하지 않기
   - [x] CDN 적용
     - [x] 한 번 요청한 리소스는 CDN 캐시에서 불러와야 한다.
     - [x] S3, CloudFront 캐시 설정을 적용한다
+  - [x] GIPHY의 trending API를 Search 페이지에 들어올 때마다 새로 요청하지 않아야 한다.
+    - [x] cache 스토리지 이용
+    - [x] cache 스토리지 wrapping 함수 제작 및 적용
