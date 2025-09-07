@@ -5,6 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 module.exports = {
   entry: './src/index.tsx',
@@ -63,7 +64,21 @@ module.exports = {
   },
   optimization: {
     minimize: true,
-    minimizer: [`...`, new CssMinimizerPlugin()]
+    minimizer: [
+      `...`,
+      new CssMinimizerPlugin(),
+      new ImageMinimizerPlugin({
+        test: /\.png$/i,
+        minimizer: {
+          implementation: ImageMinimizerPlugin.sharpMinify,
+          options: {
+            encodeOptions: {
+              png: { quality: 70, palette: true } // palette로 더 작게
+            }
+          }
+        }
+      })
+    ]
     // concatenateModules: false
   }
 };
