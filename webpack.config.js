@@ -11,9 +11,11 @@ module.exports = {
   entry: './src/index.tsx',
   resolve: { extensions: ['.ts', '.tsx', '.js', '.jsx'] },
   output: {
-    filename: 'bundle.js',
     path: path.join(__dirname, '/dist'),
-    clean: true
+    clean: true,
+    filename: '[name].[contenthash].js',
+    chunkFilename: '[name].[contenthash].js',
+    assetModuleFilename: 'static/[name][ext]'
   },
   devServer: {
     hot: true,
@@ -64,6 +66,9 @@ module.exports = {
   },
   optimization: {
     minimize: true,
+    splitChunks: {
+      chunks: 'all'
+    },
     minimizer: [
       `...`,
       new CssMinimizerPlugin(),
