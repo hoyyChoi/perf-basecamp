@@ -22,7 +22,6 @@ const Home = () => {
   return (
     <>
       <section className={styles.heroSection}>
-        {/* <img className={styles.heroImage} src={heroImage} alt="hero image" /> */}
         <picture>
           <source srcSet={heroImageWebp} type="image/webp" />
           <img className={styles.heroImage} src={heroImage} alt="hero image" loading="eager" />
