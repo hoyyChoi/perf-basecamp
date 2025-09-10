@@ -5,30 +5,18 @@ type CustomCursorProps = { text?: string };
 
 const CustomCursor = ({ text = '' }: CustomCursorProps) => {
   const cursorRef = useRef<HTMLDivElement>(null);
-  const rafRef = useRef<number | null>(null);
-  const posRef = useRef({ x: -9999, y: -9999 });
 
   useEffect(() => {
     const el = cursorRef.current;
     if (!el) return;
 
     const onMove = (e: PointerEvent) => {
-      posRef.current.x = e.clientX;
-      posRef.current.y = e.clientY;
-
-      if (rafRef.current == null) {
-        rafRef.current = requestAnimationFrame(() => {
-          rafRef.current = null;
-          const { x, y } = posRef.current;
-          el.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-        });
-      }
+      el.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
     };
 
     window.addEventListener('pointermove', onMove, { passive: true });
     return () => {
       window.removeEventListener('pointermove', onMove);
-      if (rafRef.current != null) cancelAnimationFrame(rafRef.current);
     };
   }, []);
 
